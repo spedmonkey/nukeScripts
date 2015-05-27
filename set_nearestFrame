@@ -1,0 +1,10 @@
+#http://adamteale.com/1413/
+
+#Set Read Nodes Missing Frames Nearest Frame
+r = nuke.selectedNodes()
+for i in r:
+    i['on_error'].setValue("nearest_frame")
+#Set Shuffle Nodes Write Their Incoming Channels Out
+s = nuke.allNodes('Shuffle')
+for i in s:
+    i['label'].setValue("[value in]")
